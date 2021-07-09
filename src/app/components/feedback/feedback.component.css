@@ -1,0 +1,14 @@
+h5 {
+  margin-bottom: 0.5rem;
+  font-weight: lighter;
+}
+.invalid {
+  padding-top: 0.5rem;
+  font-size: small;
+  color: rgb(231, 31, 31);
+}
+input[type="text"], input[type="number"], textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: .5rem;
+}

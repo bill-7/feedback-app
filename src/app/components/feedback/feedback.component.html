@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Marketing Feedback</h2>
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <div>
+      <h5 for="name">Name</h5>
+      <input id="name" type="text" formControlName="name" required minlength=5>
+      <div *ngIf="isControlValid(feedbackForm.controls.name)" class="invalid">Invalid - must be at least 5 chars with no
+        numbers</div>
+    </div>
+    <div>
+      <h5 for="companyName">Company name</h5>
+      <input id="companyName" type="text" formControlName="companyName" required (ngModelChange)="checkForExample()" />
+      <div *ngIf="isControlValid(feedbackForm.controls.companyName)" class="invalid">This field is required</div>
+    </div>
+    <div>
+      <h5 for="jobTitle">Job title</h5>
+      <input id="jobTitle" type="text" formControlName="jobTitle" required />
+      <div *ngIf="isControlValid(feedbackForm.controls.jobTitle)" class="invalid">This field is required</div>
+    </div>
+    <div>
+      <h5 for="yearsInRole">Years in current role</h5>
+      <input id="yearsInRole" type="number" formControlName="yearsInRole" required min=1 max=50 />
+      <div *ngIf="isControlValid(feedbackForm.controls.yearsInRole)" class="invalid">Invalid - must be between 1 and 50
+        inclusive</div>
+    </div>
+    <div>
+      <h5 for="likes">What do you like about marketing corp?</h5>
+      <textarea id="likes" type="text" formControlName="likes" required></textarea>
+      <div *ngIf="isControlValid(feedbackForm.controls.likes)" class="invalid">This field is required</div>
+    </div>
+    <input type="submit" value="Submit" class="button">
+  </form>
+</div>
